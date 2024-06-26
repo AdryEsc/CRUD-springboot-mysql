@@ -14,7 +14,7 @@ public interface IndividuoServicio {
     //Metodo para eliminar un individuo de la base de datos
     public void eliminarIndividuo(Individuo individuo);
     
-    //Metodo para buscar indivisuo
-    public Individuo buscarIndividuo(Individuo individuo);
+    //Metodo para actualizar indivisuo
+    public Individuo actualizarIndividuo(Individuo individuo);
     
 }

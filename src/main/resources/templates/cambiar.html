@@ -12,6 +12,7 @@
         <br/><!-- comment -->
         
         <form th:action="@{/guardar}" th:object="${individuo}" method="post">
+            <input type="hidden" name="id_indiv" th:field="*{id_individuo}">
             <br/>
             <label for="nombre">Nombre: </label>
             <input type="text" name="nombre" th:field="*{nombre}"/>

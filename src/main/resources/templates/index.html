@@ -39,6 +39,8 @@
                     <th scope="col">EDAD</th>
                     <th scope="col">CORREO</th>
                     <th scope="col">TELEFONO</th>
+                    <th scope="col">MODIFICAR</th>
+                    <th scope="col">ELIMINAR</th>
                 </tr>
                 <tr th:each="individuo : ${individuos}">
                     <td th:text="${individuo.nombre}"></td>
@@ -46,6 +48,8 @@
                     <td th:text="${individuo.edad}"></td>
                     <td th:text="${individuo.correo}"></td>
                     <td th:text="${individuo.telefono}"></td>
+                    <td> <a th:href="@{/cambiar/} + ${individuo.id_individuo}" th:text="Modificar"/></td>
+                    <td> <a th:href="@{/eliminar/} + ${individuo.id_individuo}" th:text="Eliminar"/></td>
                 </tr>
             </table>
             

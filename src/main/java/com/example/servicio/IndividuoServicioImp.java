@@ -34,7 +34,7 @@ public class IndividuoServicioImp implements IndividuoServicio{
 
     @Override
     @Transactional(readOnly = true)
-    public Individuo buscarIndividuo(Individuo individuo) {
+    public Individuo actualizarIndividuo(Individuo individuo) {
         return individuoDao.findById(individuo.getId_individuo()).orElse(null);
     }
     

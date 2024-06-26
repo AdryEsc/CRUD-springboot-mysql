@@ -19,7 +19,6 @@ public class ControladorIndividuo {
     private IndividuoServicio individuoServicio;
     
     @GetMapping("/")
-    
     public String comienzo(Model model){
         List<Individuo> individuos = individuoServicio.listarIndividuos();
         
@@ -35,6 +34,20 @@ public class ControladorIndividuo {
     @PostMapping("/guardar")
     public String guardar(Individuo individuo){
         individuoServicio.guardarIndividuo(individuo);
+        return "redirect:/";
+    }
+    
+    @GetMapping("/cambiar/{id_individuo}")
+    public String actualizar(Individuo indiv, Model model){
+         indiv = individuoServicio.actualizarIndividuo(indiv);
+         Individuo individuo = indiv;
+         model.addAttribute("individuo", individuo);
+         return "cambiar";
+    }
+    
+    @GetMapping("/eliminar/{id_individuo}")
+    public String eliminar(Individuo individuo){
+        individuoServicio.eliminarIndividuo(individuo);
         return "redirect:/";
     }
     
