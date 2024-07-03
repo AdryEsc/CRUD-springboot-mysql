@@ -3,11 +3,13 @@ package com.example.controller;
 
 import com.example.entity.Individuo;
 import com.example.servicio.IndividuoServicio;
+import jakarta.validation.Valid;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -32,7 +34,12 @@ public class ControladorIndividuo {
     }
     
     @PostMapping("/guardar")
-    public String guardar(Individuo individuo){
+    public String guardar(@Valid Individuo individuo, Errors error){
+        //Si trae algun error
+        if(error.hasErrors()){
+            return "cambiar";
+        }
+        
         individuoServicio.guardarIndividuo(individuo);
         return "redirect:/";
     }
